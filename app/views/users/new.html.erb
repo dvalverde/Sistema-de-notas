@@ -1,0 +1,33 @@
+<h1>Sistema de Notas</h1>
+
+<div>
+    <h2>Crear usuario</h2>
+
+    <% if @user.errors.any? %>
+        <div>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= form_for(@user) do |f| %>
+        <%= f.label :username, "Nombre de usuario: " %>
+        <%= f.text_field :username, class: 'form-control' %>
+        <br/>
+
+        <%= f.label :password, "Contraseña: " %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <br/>
+
+        <%= f.label :password_confirmation, "Confirmar contraseña: " %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <br/>
+
+        <%= f.submit "Crear usuario" %>
+    <% end %>
+</div>
+
+<%= link_to "Cancelar", root_url, method: "get" %>

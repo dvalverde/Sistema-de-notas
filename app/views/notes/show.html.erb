@@ -1,0 +1,10 @@
+<h2> <%= @note.title %> </h2>
+
+<%= link_to "Inicio", root_path %>
+<%= link_to "Editar", edit_note_path(@note) %>
+<%= link_to "Borrar", note_path(@note), method: "delete", data: {confirm: "¿Borrar nota?"} %>
+<hr>
+
+<div>
+    <%= @markdown.render(@note.content.to_s).html_safe %>
+<div>

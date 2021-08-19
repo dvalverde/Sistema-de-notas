@@ -1,0 +1,14 @@
+<h1>Sistema de Notas</h1>
+
+<div>
+    ¡Hola, <b><%= @username %></b>!
+    <%= link_to "Salir", logout_path, method: "delete" %>
+
+</div>
+<div>
+    <h2>Tus notas:</h2>
+    <%= link_to "Crear nueva nota", new_note_path %>
+    <ul>
+        <%= render @notes %>
+    </ul>
+</div>
